@@ -5,14 +5,15 @@ import pathlib
 import shutil
 import logging
 
-import awkward1 as ak
+import awkward as ak
 import pandas as pd
 import numpy as np
 import torch
 import tqdm.auto as tqdm
-
-from preprocess import _transform
-
+import dask as da
+import h5py as hp
+from preprocess_dask import _transform, _extract_coords
+from pathlib import Path
 
 DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
 
@@ -41,7 +42,7 @@ train_link = "https://zenodo.org/records/2603256/files/train.h5?download=1"
 val_link = "https://zenodo.org/records/2603256/files/val.h5?download=1"
 
 
-def convert(source, destdir, basename, step=None, limit=None):
+def convert(source, destdir, basename, start = None, stop = None, step = None, limit = None):
     """
     Converts the DataFrame into an Awkward array and performs the read-write
     operations for the same. Also performs Batching of the file into smaller
@@ -53,7 +54,8 @@ def convert(source, destdir, basename, step=None, limit=None):
     :param step: int, Number of rows per awkward file, None for all rows in 1 file
     :param limit: int, Number of rows to read.
     """
-    df = pd.read_hdf(source, key='table')
+    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+    df = pd.read_hdf(source, key='table', start = start, stop = stop)
     logging.info('Total events: %s' % str(df.shape[0]))
     if limit is not None:
         df = df.iloc[0:limit]
@@ -63,19 +65,44 @@ def convert(source, destdir, basename, step=None, limit=None):
 
     idx = 0
     # Generate files as batches based on step size, only 1 batch is default
-    for start in range(0, df.shape[0], step):
-        if not os.path.exists(destdir):
-            os.makedirs(destdir)
-        output = os.path.join(destdir, '%s_%d.awkd'%(basename, idx))
-        logging.info(output)
-        if os.path.exists(output):
-            logging.warning('... file already exists: continue ...')
-            continue
-        v = _transform(df, start=start, stop=start+step)
-        ak.save(output, v, mode='x')
-        idx += 1
+    with hp.File('processed_data.h5', 'w') as h5f:
+        iter = 0
+        for start in range(0, df.shape[0], step):
+            iter = iter+1
 
-    del df, output
+            if os.path.exists(destdir):
+                shutil.rmtree(destdir)
+            if not os.path.exists(destdir):
+                os.makedirs(destdir)
+            output = os.path.join(destdir, '%s_%d.parquet'%(basename, idx))
+            logging.info(output)
+            # if os.path.exists(output):
+            #     logging.warning('... file already exists: continue ...')
+            #     continue
+            v = _extract_coords(df, start=start, stop=start+step)
+            print("Success! ", idx)
+            print(v)
+
+            # arr = ak.Array(v)
+            ak.to_parquet(v, output, compression='LZ4', compression_level=4)
+            idx += 1
+        del df, output
+
+    def merge_csv_parq(src_prq = destdir, dest_csv = destdir, base = basename):
+        data_dir = Path(src_prq)
+        print(data_dir)
+        full_df = pd.concat(
+            pd.read_parquet(parquet_file)
+            for parquet_file in data_dir.glob('*.parquet')
+        )
+        full_df.to_csv('csv_coords_converted.csv')
+        return
+
+    merge_csv_parq(train_link, destdir, basename)
+
+
+
+
 
 
 if __name__ == "__main__":
@@ -92,12 +119,12 @@ if __name__ == "__main__":
 
     # Set the PROJECT_DIR to the new folder path
     PROJECT_DIR = new_folder_path
-
+    PARQUET_FILE_LOC = os.path.join(PROJECT_DIR, 'converted')
  #   download(test_link, os.path.join(PROJECT_DIR, 'test.h5'))
  #   download(train_link, os.path.join(PROJECT_DIR, 'train.h5'))
  #   download(val_link, os.path.join(PROJECT_DIR, 'val.h5'))
 
     # Call the function
-    convert(source = os.path.join(PROJECT_DIR, 'train.h5'), destdir = os.path.join(PROJECT_DIR, 'converted'), basename = 'train-file', limit = 5)
+    convert(source = os.path.join(PROJECT_DIR, 'train.h5'), destdir = os.path.join(PROJECT_DIR, 'converted'), basename = 'train_file', start = 0, stop = 100, step = 10, limit = None)
 #    convert(source = os.path.join(PROJECT_DIR, 'test.h5'), destdir = os.path.join(PROJECT_DIR, 'converted'), basename = 'test-file')
 #    convert(source = os.path.join(PROJECT_DIR, 'val.h5'), destdir = os.path.join(PROJECT_DIR, 'converted'), basename = 'val-file')

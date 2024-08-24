@@ -2,7 +2,8 @@ import awkward1 as ak
 import numpy as np
 import vector
 import numba as nb
-
+import dask.dataframe as dd
+import dask.array as da
 """
         Takes a DataFrame and converts it into a Awkward array representation
         with features relevant to our model.
@@ -35,39 +36,67 @@ def compute_features(v, px, py, pz, energy, label, jet_p4):
 
 
 def _transform(df, start=0, stop=-1):
-    from collections import OrderedDict
-    v = OrderedDict()
 
+    # Convert the Pandas DataFrame to a Dask DataFrame
+    ddf = dd.from_pandas(df, npartitions=10)
+
+    # generate the column list to be extracted
     def _col_list(prefix, max_particles=200):
         return ['%s_%d'%(prefix,i) for i in range(max_particles)]
 
-    df = df.iloc[start:stop]
-    # We take the values in the dataframe for all particles of a single event in each row
-    # px, py, pz, e are in separate arrays
-    print(df[_col_list('PX')])
+    def process_partition(partition):
+        from collections import OrderedDict
+        v = OrderedDict()
+        _px = partition[_col_list(prefix='PX')].to_dask_array(lengths=True)
+        _py = partition[_col_list(prefix='PY')].to_dask_array(lengths=True)
+        _pz = partition[_col_list(prefix='PZ')].to_dask_array(lengths=True)
+        _e = partition[_col_list(prefix='E')].to_dask_array(lengths=True)
 
-    _px = df[_col_list(prefix = 'PX')].values
-    _py = df[_col_list(prefix = 'PY')].values
-    _pz = df[_col_list(prefix = 'PZ')].values
-    _e = df[_col_list(prefix = 'E')].values
+        mask = _e > 0
+        n_particles = mask.sum(axis=1)
 
-    # We filter out the non-0 non-negative energy particles
-    mask = _e > 0
-    n_particles = np.sum(mask, axis=1) # Number of particles for each event where energy is greater than 0
-    # _p[mask] filters out the >0 energy particles, and flattens them, so that they can be recollected for each event from counts array.
-    px = ak.JaggedArray.fromcounts(n_particles, _px[mask])
-    py = ak.JaggedArray.fromcounts(n_particles, _py[mask])
-    pz = ak.JaggedArray.fromcounts(n_particles, _pz[mask])
-    energy = ak.JaggedArray.fromcounts(n_particles, _e[mask])
-    # These are jagged arrays with each row for 1 event, and all particles in the row
+        jet_px = (_px * mask).sum(axis=1)
+        jet_py = (_py * mask).sum(axis=1)
+        jet_pz = (_pz * mask).sum(axis=1)
+        jet_energy = (_e * mask).sum(axis=1)
 
-    # List comprehension mom_objects
-    mom_objects = [vector.MomentumObject4D(px = px[i], py = py[i], pz = pz[i], energy = energy[i]) for i in range(len(px))]
-    jet_p4 = vector.MomentumObject4D.sum(mom_objects)
+        jet_pt = da.sqrt(jet_px ** 2 + jet_py ** 2)
+        log_jet_pt = da.log(jet_pt + 1e-6)
+        log_jet_energy = da.log(jet_energy + 1e-6)
 
-    _label = df['is_signal_new'].values
-    compute_features(v, px, py, pz, energy, _label, jet_p4)
+        jet_eta = 0.5 * da.log((da.sqrt(jet_px ** 2 + jet_py ** 2 + jet_pz ** 2) + jet_pz + 1e-6) /
+                               (da.sqrt(jet_px ** 2 + jet_py ** 2 + jet_pz ** 2) - jet_pz + 1e-6))
 
-    del px, py, pz, energy, _px, _py, _pz, _e, mom_objects, df
-    return v
+        px_masked = _px[mask]
+        py_masked = _py[mask]
+        pz_masked = _pz[mask]
+        part_eta = 0.5 * da.log((da.sqrt(px_masked ** 2 + py_masked ** 2 + pz_masked ** 2) + pz_masked + 1e-6) /
+                                (da.sqrt(px_masked ** 2 + py_masked ** 2 + pz_masked ** 2) - pz_masked + 1e-6))
+
+        eta_rel = part_eta - jet_eta[:, None]
+
+        # Store results in OrderedDict
+        v['jet_pt'] = jet_pt
+        v['jet_log_pt'] = log_jet_pt
+        v['jet_eta'] = jet_eta
+        v['log_jet_energy'] = log_jet_energy
+        v['eta_rel'] = eta_rel
+        v['n_parts'] = n_particles
+        v['label'] = da.stack((partition['is_signal_new'].to_dask_array(lengths=True),
+                               1 - partition['is_signal_new'].to_dask_array(lengths=True)), axis=-1)
+        v['train_val_test'] = partition['ttv'].to_dask_array(lengths=True)
+
+        del jet_px, jet_py, jet_pz, jet_energy
+        del _px, _py, _pz, _e
+        del mask, n_particles
+        del eta_rel, part_eta
+        del px_masked, py_masked, pz_masked
+        del jet_pt, log_jet_pt, log_jet_energy
+        return v
+
+    # APplying function to each of the partitions
+    results = ddf.map_partitions(process_partition, meta = v)
+
+    return results
+
 
