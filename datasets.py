@@ -13,6 +13,7 @@ import tqdm.auto as tqdm
 import dask as da
 import h5py as hp
 from preprocess_dask import _transform, _extract_coords
+import pyarrow.parquet as pq
 from pathlib import Path
 
 DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
@@ -65,41 +66,39 @@ def convert(source, destdir, basename, start = None, stop = None, step = None, l
 
     idx = 0
     # Generate files as batches based on step size, only 1 batch is default
-    with hp.File('processed_data.h5', 'w') as h5f:
-        iter = 0
-        for start in range(0, df.shape[0], step):
-            iter = iter+1
+    iter = 0
+    for start in range(0, df.shape[0], step):
+        iter = iter+1
+        # if os.path.exists(destdir):
+        #     shutil.rmtree(destdir)
+        if not os.path.exists(destdir):
+            os.makedirs(destdir)
+        output = os.path.join(destdir, '%s_%d.parquet'%(basename, idx))
+        logging.info(output)
+        if os.path.exists(output):
+            logging.warning('... file already exists: continue ...')
+            continue
+        v = _extract_coords(df, start=start, stop=start+step)
+        # arr = ak.Array(v)
+        ak.to_parquet(v, output, compression='LZ4', compression_level=4)
+        logging.info("Parquet file no. ", start, " created.")
+        idx += 1
+    del df, output
 
-            if os.path.exists(destdir):
-                shutil.rmtree(destdir)
-            if not os.path.exists(destdir):
-                os.makedirs(destdir)
-            output = os.path.join(destdir, '%s_%d.parquet'%(basename, idx))
-            logging.info(output)
-            # if os.path.exists(output):
-            #     logging.warning('... file already exists: continue ...')
-            #     continue
-            v = _extract_coords(df, start=start, stop=start+step)
-            print("Success! ", idx)
-            print(v)
 
-            # arr = ak.Array(v)
-            ak.to_parquet(v, output, compression='LZ4', compression_level=4)
-            idx += 1
-        del df, output
+def parquet_handler(source_loc, dest_loc = None):
+    parquet_dir = Path(source_loc)
+    directory = source_loc.split('/')[-1]
+    if not os.path.exists(dest_loc):
+        os.makedirs(dest_loc)
 
-    def merge_csv_parq(src_prq = destdir, dest_csv = destdir, base = basename):
-        data_dir = Path(src_prq)
-        print(data_dir)
-        full_df = pd.concat(
-            pd.read_parquet(parquet_file)
-            for parquet_file in data_dir.glob('*.parquet')
-        )
-        full_df.to_csv('csv_coords_converted.csv')
-        return
+    full_df = pd.concat(pq.read_table(parquet_file).to_pandas()
+                        for parquet_file in parquet_dir.glob('%s_file_*.parquet'%(directory))
+                        )
+    csv_path = os.path.join(dest_loc, '%s_processed.csv'%(directory))
+    full_df.to_csv(csv_path, index=False)
 
-    merge_csv_parq(train_link, destdir, basename)
-
+    return
 
 
 
@@ -108,7 +107,7 @@ def convert(source, destdir, basename, start = None, stop = None, step = None, l
 if __name__ == "__main__":
 
     CURRENT_DIR = os.getcwd()
-
+    print(CURRENT_DIR)
     # Define the new folder name and its path
     new_folder_name = "downloads"
     new_folder_path = os.path.join(CURRENT_DIR, new_folder_name)
@@ -125,6 +124,10 @@ if __name__ == "__main__":
  #   download(val_link, os.path.join(PROJECT_DIR, 'val.h5'))
 
     # Call the function
-    convert(source = os.path.join(PROJECT_DIR, 'train.h5'), destdir = os.path.join(PROJECT_DIR, 'converted'), basename = 'train_file', start = 0, stop = 100, step = 10, limit = None)
-#    convert(source = os.path.join(PROJECT_DIR, 'test.h5'), destdir = os.path.join(PROJECT_DIR, 'converted'), basename = 'test-file')
-#    convert(source = os.path.join(PROJECT_DIR, 'val.h5'), destdir = os.path.join(PROJECT_DIR, 'converted'), basename = 'val-file')
+    convert(source = os.path.join(PROJECT_DIR, 'train.h5'), destdir = os.path.join(PROJECT_DIR, 'converted', 'train'), basename = 'train_file', start = 0, stop = 100000, step = 1000, limit = None)
+    convert(source = os.path.join(PROJECT_DIR, 'test.h5'), destdir = os.path.join(PROJECT_DIR, 'converted', 'test'), basename = 'test_file', start = 0, stop = 30000, step = 1000, limit = None)
+    convert(source = os.path.join(PROJECT_DIR, 'val.h5'), destdir = os.path.join(PROJECT_DIR, 'converted', 'val'), basename = 'val_file', start = 0, stop = 10000, step = 1000, limit = None)
+
+    parquet_handler(source_loc = os.path.join(PROJECT_DIR, 'converted', 'train'), dest_loc = os.path.join(PROJECT_DIR, 'processed', 'train'))
+    parquet_handler(source_loc = os.path.join(PROJECT_DIR, 'converted', 'test'), dest_loc = os.path.join(PROJECT_DIR, 'processed', 'test'))
+    parquet_handler(source_loc = os.path.join(PROJECT_DIR, 'converted', 'val'), dest_loc = os.path.join(PROJECT_DIR, 'processed', 'val'))
