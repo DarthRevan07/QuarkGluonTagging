@@ -7,7 +7,7 @@ import awkward as ak
 import os
 import numpy as np
 import argparse
-
+import pprint
 
 '''
 Datasets introduction:
@@ -62,6 +62,7 @@ def _extract_coords(df, start=0, stop=-1):
     v['rho'] = p4.rho
     v['theta'] = p4.theta
     v['eta'] = p4.eta
+
     v['jet_nparticles'] = n_particles
 
     _label = df['is_signal_new'].values
@@ -134,9 +135,6 @@ def _transform(df, start=0, stop=-1):
     v['label'] = np.stack((_label, 1-_label), axis=-1)
     v['train_val_test'] = df['ttv'].values
 
-    for k in list(v.keys()):
-        if k.endswith('Plus') or k.endswith('Minus'):
-            del v[k]
 
     del px, py, pz, energy, p4, pt, _jet_etasign, _label
     return v

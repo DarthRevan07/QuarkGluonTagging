@@ -9,12 +9,16 @@ import awkward as ak
 import pandas as pd
 import numpy as np
 import torch
-import tqdm.auto as tqdm
+# import tqdm.auto as tqdm
 import dask as da
 import h5py as hp
 from preprocess_dask import _transform, _extract_coords
 import pyarrow.parquet as pq
 from pathlib import Path
+import uproot
+import dask.dataframe as dd
+import dask_awkward
+
 
 DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
 
@@ -75,9 +79,9 @@ def convert(source, destdir, basename, start = None, stop = None, step = None, l
             os.makedirs(destdir)
         output = os.path.join(destdir, '%s_%d.parquet'%(basename, idx))
         logging.info(output)
-        if os.path.exists(output):
-            logging.warning('... file already exists: continue ...')
-            continue
+        # if os.path.exists(output):
+        #     logging.warning('... file already exists: continue ...')
+        #     continue
         v = _extract_coords(df, start=start, stop=start+step)
         # arr = ak.Array(v)
         ak.to_parquet(v, output, compression='LZ4', compression_level=4)
@@ -92,16 +96,117 @@ def parquet_handler(source_loc, dest_loc = None):
     if not os.path.exists(dest_loc):
         os.makedirs(dest_loc)
 
-    full_df = pd.concat(pq.read_table(parquet_file).to_pandas()
-                        for parquet_file in parquet_dir.glob('%s_file_*.parquet'%(directory))
-                        )
-    csv_path = os.path.join(dest_loc, '%s_processed.csv'%(directory))
-    full_df.to_csv(csv_path, index=False)
+    csv_path = str(os.path.join(dest_loc, '%s_processed.csv' % directory))
+    if os.path.exists(csv_path):
+        logging.info("... CSV file already exists, moving on...")
+        pass
+    else:
+        for i, parquet_path in enumerate(parquet_dir.glob('%s_file_*.parquet' % directory)):
+            df = pq.read_table(parquet_path).to_pandas()
+            write_header = i == 0 # Write header only on the 0th file
+            write_mode = 'w' if i == 0 else 'a' # 'write' mode for 0th file, 'append' for others
+            df.to_csv(csv_path, mode=write_mode, header=write_header)
 
     return
 
 
+# def root_handler(source_loc, dest_loc=None):
+#     root_dir = Path(source_loc)
+#
+#     # Ensure the destination directory exists
+#     if dest_loc and not os.path.exists(dest_loc):
+#         os.makedirs(dest_loc)
+#
+#     all_data = []
+#
+#     # Iterate over each ROOT file in the directory
+#     for root_file in root_dir.glob('top_train_*.root'):
+#         # Access the 'Events;1' tree
+#         tree = uproot.open(f"{root_file}:Events;1")
+#
+#         # Get all available keys in the tree
+#         keys_to_extract = tree.keys()
+#
+#         # Extract data for all keys as Awkward Arrays
+#         data = tree.arrays(keys_to_extract, library="ak")
+#         all_data.append(data)
+#
+#         # Concatenate all Awkward Arrays
+#     combined_data = ak.concatenate(all_data, axis=0)
+#     dask_awk_arr = dask_awkward.from_awkward(combined_data, npartitions=4)
+#     df = dask_awkward.to_dataframe(dask_awk_arr)
+#     # Convert the combined Awkward Array to a pandas DataFrame
+#
+#
+#     # Write the combined Dask DataFrame to a CSV file
+#     if dest_loc:
+#         output_path = os.path.join(dest_loc, 'train_combined_data.csv')
+#         if os.path.exists(output_path):
+#             pass
+#         else:
+#             df.to_csv(output_path, single_file=True, index=False)
+#
+#     del df, all_data
 
+    # Return the combined Dask DataFrame for further use if needed
+
+
+
+    # all_data = []
+    # for root_file in root_dir.glob('top_test_*.root'):
+    #     # Access the 'Events;1' tree
+    #     tree = uproot.open(f"{root_file}:Events;1")
+    #
+    #     # Get all available keys in the tree
+    #     keys_to_extract = tree.keys()
+    #
+    #     # Extract data for all keys as Awkward Arrays
+    #     data = tree.arrays(keys_to_extract, library="ak")
+    #     all_data.append(data)
+    #
+    #     # Concatenate all Awkward Arrays
+    # combined_data = ak.concatenate(all_data, axis=0)
+    # df = dask_awkward.to_dataframe(combined_data)
+    # # Convert the combined Awkward Array to a pandas DataFrame
+    # # df = ak.to_pandas(combined_data)
+    #
+    # # Write the combined Dask DataFrame to a CSV file
+    # if dest_loc:
+    #     output_path = os.path.join(dest_loc, 'test_combined_data.csv')
+    #     df.to_csv(output_path, single_file=True, index=False)
+    #
+    # del df, all_data
+    #
+    #
+    #
+    #
+    # all_data = []
+    # for root_file in root_dir.glob('top_val_*.root'):
+    #     # Access the 'Events;1' tree
+    #     tree = uproot.open(f"{root_file}:Events;1")
+    #
+    #     # Get all available keys in the tree
+    #     keys_to_extract = tree.keys()
+    #
+    #     # Extract data for all keys as Awkward Arrays
+    #     data = tree.arrays(keys_to_extract, library="ak")
+    #     all_data.append(data)
+    #
+    #     # Concatenate all Awkward Arrays
+    # combined_data = ak.concatenate(all_data, axis=0)
+    # df = dask_awkward.to_dataframe(combined_data)
+    # # Convert the combined Awkward Array to a pandas DataFrame
+    # # df = ak.to_pandas(combined_data)
+    #
+    # # Write the combined Dask DataFrame to a CSV file
+    # if dest_loc:
+    #     output_path = os.path.join(dest_loc, 'val_combined_data.csv')
+    #     df.to_csv(output_path, single_file=True, index=False)
+    #
+    # del df, all_data
+
+
+    # return
 
 
 if __name__ == "__main__":
@@ -124,10 +229,12 @@ if __name__ == "__main__":
  #   download(val_link, os.path.join(PROJECT_DIR, 'val.h5'))
 
     # Call the function
-    convert(source = os.path.join(PROJECT_DIR, 'train.h5'), destdir = os.path.join(PROJECT_DIR, 'converted', 'train'), basename = 'train_file', start = 0, stop = 100000, step = 1000, limit = None)
-    convert(source = os.path.join(PROJECT_DIR, 'test.h5'), destdir = os.path.join(PROJECT_DIR, 'converted', 'test'), basename = 'test_file', start = 0, stop = 30000, step = 1000, limit = None)
-    convert(source = os.path.join(PROJECT_DIR, 'val.h5'), destdir = os.path.join(PROJECT_DIR, 'converted', 'val'), basename = 'val_file', start = 0, stop = 10000, step = 1000, limit = None)
+    # convert(source = os.path.join(PROJECT_DIR, 'train.h5'), destdir = os.path.join(PROJECT_DIR, 'converted', 'train'), basename = 'train_file', start = 0, stop = 100, step = 10, limit = None)
+    # convert(source = os.path.join(PROJECT_DIR, 'test.h5'), destdir = os.path.join(PROJECT_DIR, 'converted', 'test'), basename = 'test_file', start = 0, stop = 30000, step = 1000, limit = None)
+    # convert(source = os.path.join(PROJECT_DIR, 'val.h5'), destdir = os.path.join(PROJECT_DIR, 'converted', 'val'), basename = 'val_file', start = 0, stop = 10000, step = 1000, limit = None)
 
     parquet_handler(source_loc = os.path.join(PROJECT_DIR, 'converted', 'train'), dest_loc = os.path.join(PROJECT_DIR, 'processed', 'train'))
     parquet_handler(source_loc = os.path.join(PROJECT_DIR, 'converted', 'test'), dest_loc = os.path.join(PROJECT_DIR, 'processed', 'test'))
     parquet_handler(source_loc = os.path.join(PROJECT_DIR, 'converted', 'val'), dest_loc = os.path.join(PROJECT_DIR, 'processed', 'val'))
+
+    # root_handler(os.path.join(PROJECT_DIR, 'prep'), os.path.join(PROJECT_DIR, 'prep'))
