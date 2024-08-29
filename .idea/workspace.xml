@@ -4,19 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="690cc6b7-dab3-439a-a8e1-75df922997bf" name="Changes" comment="Naive peristent module, logger files.">
-      <change afterPath="$PROJECT_DIR$/downloads/converted/train_file_9.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/downloads/test.h5" afterDir="false" />
+    <list default="true" id="690cc6b7-dab3-439a-a8e1-75df922997bf" name="Changes" comment="Parquet handler added, csv files merged.">
+      <change afterPath="$PROJECT_DIR$/Weaver/weaver-benchmark" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/downloads/train.h5" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/downloads/val.h5" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/helper/helper_func.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/preprocess_dask.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/processed_data.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/helper/unittester.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datasets.py" beforeDir="false" afterPath="$PROJECT_DIR$/datasets.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/persistent_mod.py" beforeDir="false" afterPath="$PROJECT_DIR$/persistent_mod.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/persistent_net-2.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/persistent_net-2.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pre_persistence.py" beforeDir="false" afterPath="$PROJECT_DIR$/pre_persistence.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/preprocess.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/preprocess_dask.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess_dask.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +32,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;DarthRevan07&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/DarthRevan07/QuarkGluonTagging.git&quot;,
+    &quot;accountId&quot;: &quot;aadca756-bfb3-4b44-9759-48361a59bb90&quot;
+  }
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -48,9 +58,12 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python tests.Python tests in unittester.py.executor&quot;: &quot;Run&quot;,
     &quot;Python.awkward.executor&quot;: &quot;Run&quot;,
     &quot;Python.datasets.executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.pre_persistence.executor&quot;: &quot;Run&quot;,
+    &quot;Python.preprocess_dask.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -66,7 +79,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="Python.datasets">
+  <component name="RunManager" selected="Python.pre_persistence">
     <configuration name="awkward" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="QuarkGluonTagging" />
       <option name="ENV_FILES" value="" />
@@ -136,9 +149,74 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="pre_persistence" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="QuarkGluonTagging" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pre_persistence.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="preprocess_dask" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="QuarkGluonTagging" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/preprocess_dask.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests in unittester.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="QuarkGluonTagging" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/helper" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/helper/unittester.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.pre_persistence" />
         <item itemvalue="Python.datasets" />
+        <item itemvalue="Python.preprocess_dask" />
+        <item itemvalue="Python tests.Python tests in unittester.py" />
         <item itemvalue="Python.awkward" />
       </list>
     </recent_temporary>
@@ -146,8 +224,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-PY-241.15989.155" />
-        <option value="bundled-python-sdk-babbdf50b680-7c6932dee5e4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.15989.155" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.19072.16" />
+        <option value="bundled-python-sdk-8336bb23522e-2767605e8bc2-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.19072.16" />
       </set>
     </attachedChunks>
   </component>
@@ -168,7 +246,11 @@
       <workItem from="1721931281463" duration="481000" />
       <workItem from="1724414312341" duration="14471000" />
       <workItem from="1724471084677" duration="3205000" />
-      <workItem from="1724514970336" duration="5928000" />
+      <workItem from="1724514970336" duration="7421000" />
+      <workItem from="1724581635094" duration="30469000" />
+      <workItem from="1724741461558" duration="7114000" />
+      <workItem from="1724789689716" duration="590000" />
+      <workItem from="1724826450525" duration="10118000" />
     </task>
     <task id="LOCAL-00001" summary="Naive peristent module, logger files.">
       <option name="closed" value="true" />
@@ -186,7 +268,39 @@
       <option name="project" value="LOCAL" />
       <updated>1721854646714</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="New transform method, created parquet files.">
+      <option name="closed" value="true" />
+      <created>1724521683957</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1724521683957</updated>
+    </task>
+    <task id="LOCAL-00004" summary="New transform method, created parquet files.">
+      <option name="closed" value="true" />
+      <created>1724521783042</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1724521783043</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Parquet handler added, csv files merged.">
+      <option name="closed" value="true" />
+      <created>1724586993206</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1724586993206</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Parquet handler added, csv files merged.">
+      <option name="closed" value="true" />
+      <created>1724789508387</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1724789508387</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,7 +321,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Added dataset downloading and pre-processing code." />
     <MESSAGE value="Naive peristent module, logger files." />
-    <option name="LAST_COMMIT_MESSAGE" value="Naive peristent module, logger files." />
+    <MESSAGE value="New transform method, created parquet files." />
+    <MESSAGE value="Parquet handler added, csv files merged.&#10;Update max runtime&#10;&#10;otherwise the job will be idled" />
+    <MESSAGE value="Parquet handler added, csv files merged." />
+    <option name="LAST_COMMIT_MESSAGE" value="Parquet handler added, csv files merged." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -217,17 +334,15 @@
           <line>36</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/preprocess_dask.py</url>
-          <line>111</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/QuarkGluonTagging$pre_persistence.coverage" NAME="pre_persistence Coverage Results" MODIFIED="1724927930118" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/QuarkGluonTagging$awkward.coverage" NAME="awkward Coverage Results" MODIFIED="1724426216967" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/QuarkGluonTagging$.coverage" NAME=" Coverage Results" MODIFIED="1724588452442" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/helper" />
     <SUITE FILE_PATH="coverage/QuarkGluonTagging$main.coverage" NAME="main Coverage Results" MODIFIED="1719502336434" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/QuarkGluonTagging$datasets.coverage" NAME="datasets Coverage Results" MODIFIED="1724520209943" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/QuarkGluonTagging$preprocess_dask.coverage" NAME="preprocess_dask Coverage Results" MODIFIED="1724920682930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/QuarkGluonTagging$datasets.coverage" NAME="datasets Coverage Results" MODIFIED="1724927552977" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

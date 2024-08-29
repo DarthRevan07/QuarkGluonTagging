@@ -34,10 +34,10 @@ class PersistenceModule:
 
         # Iterate over each entry in the dataset
         for entry in self._iterate_dataset(self.dataset):
-            # Extract the (px, py, pz, energy) coordinates
+            # Extract the (x, y, z, t) coordinates
             coordinates = np.array(entry)
 
-            # Create a RipsComplex using the first 3 coordinates (px, py, pz)
+            # Create a RipsComplex using the first 3 coordinates (x, y, z)
             rips_complex = gd.RipsComplex(points=coordinates[:, :3], sparse=0.2)
             simplex_tree = rips_complex.create_simplex_tree()
 

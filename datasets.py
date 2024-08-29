@@ -4,7 +4,6 @@ import functools
 import pathlib
 import shutil
 import logging
-
 import awkward as ak
 import pandas as pd
 import numpy as np
@@ -18,7 +17,7 @@ from pathlib import Path
 import uproot
 import dask.dataframe as dd
 import dask_awkward
-
+import tqdm
 
 DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
 
@@ -84,7 +83,7 @@ def convert(source, destdir, basename, start = None, stop = None, step = None, l
         #     continue
         v = _extract_coords(df, start=start, stop=start+step)
         # arr = ak.Array(v)
-        ak.to_parquet(v, output, compression='LZ4', compression_level=4)
+        ak.to_parquet(v, output, compression=None)
         logging.info("Parquet file no. ", start, " created.")
         idx += 1
     del df, output
@@ -233,8 +232,18 @@ if __name__ == "__main__":
     # convert(source = os.path.join(PROJECT_DIR, 'test.h5'), destdir = os.path.join(PROJECT_DIR, 'converted', 'test'), basename = 'test_file', start = 0, stop = 30000, step = 1000, limit = None)
     # convert(source = os.path.join(PROJECT_DIR, 'val.h5'), destdir = os.path.join(PROJECT_DIR, 'converted', 'val'), basename = 'val_file', start = 0, stop = 10000, step = 1000, limit = None)
 
-    parquet_handler(source_loc = os.path.join(PROJECT_DIR, 'converted', 'train'), dest_loc = os.path.join(PROJECT_DIR, 'processed', 'train'))
-    parquet_handler(source_loc = os.path.join(PROJECT_DIR, 'converted', 'test'), dest_loc = os.path.join(PROJECT_DIR, 'processed', 'test'))
-    parquet_handler(source_loc = os.path.join(PROJECT_DIR, 'converted', 'val'), dest_loc = os.path.join(PROJECT_DIR, 'processed', 'val'))
+    # print(df['x'])
+    print("\n")
+    ak_array = ak.Array(df['x'])
+    print(ak_array[0])
+    # print(ak.count(ak_array[0]))
+    print("\n")
+    jet_parts = ak.Array(df['jet_nparticles'])
+
+
+    # print(df['x'][1])
+    # parquet_handler(source_loc = os.path.join(PROJECT_DIR, 'converted', 'train'), dest_loc = os.path.join(PROJECT_DIR, 'processed', 'train'))
+    # parquet_handler(source_loc = os.path.join(PROJECT_DIR, 'converted', 'test'), dest_loc = os.path.join(PROJECT_DIR, 'processed', 'test'))
+    # parquet_handler(source_loc = os.path.join(PROJECT_DIR, 'converted', 'val'), dest_loc = os.path.join(PROJECT_DIR, 'processed', 'val'))
 
     # root_handler(os.path.join(PROJECT_DIR, 'prep'), os.path.join(PROJECT_DIR, 'prep'))

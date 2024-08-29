@@ -55,8 +55,15 @@ def _extract_coords(df, start=0, stop=-1):
     # energy = ak.sum(energy, axis=0)
     p4 = _p4_from_pxpypze(px, py, pz, energy)
     v['x'] = p4.x
+    # print("x : ", type(v['x']))
+    # print("\n")
     v['y'] = p4.y
+    # print("y : ", v['y'])
+    # print("\n")
     v['z'] = p4.z
+    # print("z : ", v['z'])
+    # print("\n")
+    # input()
     v['t'] = p4.t
     v['phi'] = p4.phi
     v['rho'] = p4.rho
