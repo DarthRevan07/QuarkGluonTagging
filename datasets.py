@@ -228,17 +228,9 @@ if __name__ == "__main__":
  #   download(val_link, os.path.join(PROJECT_DIR, 'val.h5'))
 
     # Call the function
-    # convert(source = os.path.join(PROJECT_DIR, 'train.h5'), destdir = os.path.join(PROJECT_DIR, 'converted', 'train'), basename = 'train_file', start = 0, stop = 100, step = 10, limit = None)
+    convert(source = os.path.join(PROJECT_DIR, 'train.h5'), destdir = os.path.join(PROJECT_DIR, 'converted', 'train'), basename = 'train_file', start = 0, stop = 100, step = 10, limit = None)
     # convert(source = os.path.join(PROJECT_DIR, 'test.h5'), destdir = os.path.join(PROJECT_DIR, 'converted', 'test'), basename = 'test_file', start = 0, stop = 30000, step = 1000, limit = None)
     # convert(source = os.path.join(PROJECT_DIR, 'val.h5'), destdir = os.path.join(PROJECT_DIR, 'converted', 'val'), basename = 'val_file', start = 0, stop = 10000, step = 1000, limit = None)
-
-    # print(df['x'])
-    print("\n")
-    ak_array = ak.Array(df['x'])
-    print(ak_array[0])
-    # print(ak.count(ak_array[0]))
-    print("\n")
-    jet_parts = ak.Array(df['jet_nparticles'])
 
 
     # print(df['x'][1])

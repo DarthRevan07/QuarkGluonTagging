@@ -4,16 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="690cc6b7-dab3-439a-a8e1-75df922997bf" name="Changes" comment="Parquet handler added, csv files merged.">
-      <change afterPath="$PROJECT_DIR$/Weaver/weaver-benchmark" afterDir="false" />
+    <list default="true" id="690cc6b7-dab3-439a-a8e1-75df922997bf" name="Changes" comment="Parsed the processed dataframe, &#10;TODO :: Pass to Persistence Pipeline">
+      <change afterPath="$PROJECT_DIR$/coordinates_extract.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_0.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_1.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_2.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_3.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_4.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_5.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_6.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_7.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_8.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_9.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/processed/train/train_processed.csv" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/downloads/train.h5" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/helper/unittester.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/processed_dict.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datasets.py" beforeDir="false" afterPath="$PROJECT_DIR$/datasets.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/persistent_mod.py" beforeDir="false" afterPath="$PROJECT_DIR$/persistent_mod.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pre_persistence.py" beforeDir="false" afterPath="$PROJECT_DIR$/pre_persistence.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preprocess.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/preprocess_dask.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess_dask.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -250,7 +258,11 @@
       <workItem from="1724581635094" duration="30469000" />
       <workItem from="1724741461558" duration="7114000" />
       <workItem from="1724789689716" duration="590000" />
-      <workItem from="1724826450525" duration="10118000" />
+      <workItem from="1724826450525" duration="19171000" />
+      <workItem from="1725010654985" duration="49000" />
+      <workItem from="1725272414142" duration="76000" />
+      <workItem from="1725353410782" duration="659000" />
+      <workItem from="1725354160213" duration="2188000" />
     </task>
     <task id="LOCAL-00001" summary="Naive peristent module, logger files.">
       <option name="closed" value="true" />
@@ -300,7 +312,15 @@
       <option name="project" value="LOCAL" />
       <updated>1724789508387</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Parsed the processed dataframe, &#10;TODO :: Pass to Persistence Pipeline">
+      <option name="closed" value="true" />
+      <created>1724928634149</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1724928634149</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -324,7 +344,8 @@
     <MESSAGE value="New transform method, created parquet files." />
     <MESSAGE value="Parquet handler added, csv files merged.&#10;Update max runtime&#10;&#10;otherwise the job will be idled" />
     <MESSAGE value="Parquet handler added, csv files merged." />
-    <option name="LAST_COMMIT_MESSAGE" value="Parquet handler added, csv files merged." />
+    <MESSAGE value="Parsed the processed dataframe, &#10;TODO :: Pass to Persistence Pipeline" />
+    <option name="LAST_COMMIT_MESSAGE" value="Parsed the processed dataframe, &#10;TODO :: Pass to Persistence Pipeline" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -338,11 +359,11 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/QuarkGluonTagging$pre_persistence.coverage" NAME="pre_persistence Coverage Results" MODIFIED="1724927930118" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/QuarkGluonTagging$pre_persistence.coverage" NAME="pre_persistence Coverage Results" MODIFIED="1725355941490" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/QuarkGluonTagging$awkward.coverage" NAME="awkward Coverage Results" MODIFIED="1724426216967" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/QuarkGluonTagging$.coverage" NAME=" Coverage Results" MODIFIED="1724588452442" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/helper" />
     <SUITE FILE_PATH="coverage/QuarkGluonTagging$main.coverage" NAME="main Coverage Results" MODIFIED="1719502336434" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/QuarkGluonTagging$preprocess_dask.coverage" NAME="preprocess_dask Coverage Results" MODIFIED="1724920682930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/QuarkGluonTagging$datasets.coverage" NAME="datasets Coverage Results" MODIFIED="1724927552977" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/QuarkGluonTagging$datasets.coverage" NAME="datasets Coverage Results" MODIFIED="1725355883506" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
