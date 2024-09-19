@@ -84,7 +84,7 @@ class EventProcessor:
         boundaries = build_boundaries(simplices)
         laplacians = build_laplacians(boundaries)
 
-        return laplacians, boundaries
+        return laplacians, boundaries, simplices
 
     def compute_lapl_and_bounds(self, step, limit, max_dimension=2, sparsity=0.3, filtration_val=1.0,
                                                     output_dir="scnn/bounds_and_laps"):
@@ -122,26 +122,29 @@ class EventProcessor:
         all_boundaries = []
         all_node_feats = []
         all_labels = []
+        all_simpl = []
         for idx, (event_id, coord) in enumerate(coordinates.items()):
             logging.info(f'Processing event {event_id} ({idx + 1}/{total_events})')
             if idx >= total_events:
                 break
             # Compute the laplacians and boundaries for the event
-            laplacians, boundaries = self._compute_rips(event_id, coord, max_dimension, sparsity, filtration_val)
+            laplacians, boundaries, simplices = self._compute_rips(event_id, coord, max_dimension, sparsity, filtration_val)
 
             # Store results in lists
             all_laplacians.append(laplacians)
             all_boundaries.append(boundaries)
             all_node_feats.append(coord)
             all_labels.append(labels[event_id])
+            all_simpl.append(simplices)
             # Free memory for large variables
-            del laplacians, boundaries, coord
+            del laplacians, boundaries, coord, simplices
 
         np.savez_compressed(os.path.join(output_dir, 'laplacians.npz'), *all_laplacians)
         np.savez_compressed(os.path.join(output_dir, 'boundaries.npz'), *all_boundaries)
         np.savez_compressed(os.path.join(output_dir, 'node_feats.npz'), *all_node_feats)
         np.savez_compressed(os.path.join(output_dir, 'labels.npz'), *all_labels)
-        logging.info('Laplacians, boundaries, node feats, and labels computed and saved successfully.')
+        np.savez_compressed(os.path.join(output_dir, 'simpl.npz'), *all_simpl)
+        logging.info('Laplacians, boundaries, node feats, simplices and labels computed and saved successfully.')
 
 
 
@@ -154,5 +157,5 @@ if __name__ == "__main__":
     # Initialize the processor
     processor = EventProcessor(pkl_file, columns_to_extract, label_column)
 
-    processor.compute_lapl_and_bounds(step=1000, limit = 10000, max_dimension=2, sparsity=0.3, filtration_val=10.0)
+    processor.compute_lapl_and_bounds(step=100, limit = 1000, max_dimension=2, sparsity=2, filtration_val=np.inf) # Use filtration value around 10-15
 

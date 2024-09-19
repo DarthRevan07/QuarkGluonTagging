@@ -3,7 +3,7 @@ import torch.nn as nn
 import numpy as np
 import scipy.sparse as sp
 
-import scnn.chebyshev
+import chebyshev
 
 
 def coo2tensor(A):
@@ -39,10 +39,10 @@ class SimplicialConvolution(nn.Module):
 
         (B, C_in, M) = x.shape
 
-        assert (M == L.shape[0])
+        assert (M == L.shape[0])    # OK
         assert (C_in == self.C_in)
 
-        X = scnn.chebyshev.assemble(self.K, L, x)
+        X = chebyshev.assemble(self.K, L, x)
         y = torch.einsum("bimk,oik->bom", (X, self.theta))
         assert (y.shape == (B, self.C_out, M))
 
