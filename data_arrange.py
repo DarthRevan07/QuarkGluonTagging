@@ -94,13 +94,31 @@ if __name__ == '__main__':
     file_cont = os.path.join(datapath, 'train')
     df = parquet_reader(file_cont)
     awkward_dict = awkward_structure_parser(df)
-    # print(awkward_dict['event_0'])
-    # print(awkward_dict['event_1'])
-    # print(awkward_dict['event_2'])
-    # print(awkward_dict['event_3'])
-    # print(awkward_dict['event_10'])
-    with open('processed_dict.pkl', 'wb') as f:
-        pickle.dump(awkward_dict, f)
 
+    train_path = os.path.join(os.getcwd(), 'downloads/processed/')
+    if os.path.exists(train_path):
+        pass
+    else:
+        os.mkdir(train_path)
+
+
+    with open(os.path.join(train_path, 'train_data.pkl'), 'wb') as f:
+        pickle.dump(awkward_dict, f)
     del df
 
+    file_cont = os.path.join(datapath, 'test')
+    df = parquet_reader(file_cont)
+    awkward_dict = awkward_structure_parser(df)
+
+
+    test_path = os.path.join(os.getcwd(), 'downloads/processed/')
+    if os.path.exists(train_path):
+        pass
+    else:
+        os.mkdir(train_path)
+
+    with open(os.path.join(test_path, 'test_data.pkl'), 'wb') as f:
+        pickle.dump(awkward_dict, f)
+    del df
+
+    del train_path, test_path, awkward_dict
