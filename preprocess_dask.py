@@ -69,7 +69,7 @@ def _extract_coords(df, start=0, stop=-1):
     v['rho'] = p4.rho
     v['theta'] = p4.theta
     v['eta'] = p4.eta
-
+    v['jet_pt'] = p4.pt
     v['jet_nparticles'] = n_particles
 
     _label = df['is_signal_new'].values
@@ -81,6 +81,11 @@ def _p4_from_pxpypze(px, py, pz, e):
     import vector
     vector.register_awkward()
     return vector.zip({'px': px, 'py': py, 'z': pz, 'E': e})
+
+
+
+
+
 
 
 def _transform(df, start=0, stop=-1):
