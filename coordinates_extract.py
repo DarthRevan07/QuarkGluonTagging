@@ -6,7 +6,9 @@ import numpy as np
 import dask
 import gudhi as gd
 from scnn.build_matrices import build_boundaries, build_laplacians
-
+import dask
+from dask import delayed, compute
+from dask.distributed import Client
 class EventProcessor:
     def __init__(self, pkl_file, columns, label_column=None):
         """
@@ -87,7 +89,7 @@ class EventProcessor:
         return laplacians, boundaries, simplices
 
     def compute_lapl_and_bounds(self, step, limit, max_dimension=2, sparsity=0.3, filtration_val=1.0,
-                                                    output_dir="scnn/bounds_and_laps"):
+                                                    output_dir="scnn/bounds_and_laps", entity = "train"):
         """
         Compute laplacians and boundaries for all events and store them in separate .npy files.
 
@@ -139,11 +141,11 @@ class EventProcessor:
             # Free memory for large variables
             del laplacians, boundaries, coord, simplices
 
-        np.savez_compressed(os.path.join(output_dir, 'laplacians.npz'), *all_laplacians)
-        np.savez_compressed(os.path.join(output_dir, 'boundaries.npz'), *all_boundaries)
-        np.savez_compressed(os.path.join(output_dir, 'node_feats.npz'), *all_node_feats)
-        np.savez_compressed(os.path.join(output_dir, 'labels.npz'), *all_labels)
-        np.savez_compressed(os.path.join(output_dir, 'simpl.npz'), *all_simpl)
+        np.savez_compressed(os.path.join(output_dir, f'{entity}_laplacians.npz'), *all_laplacians)
+        np.savez_compressed(os.path.join(output_dir, f'{entity}_boundaries.npz'), *all_boundaries)
+        np.savez_compressed(os.path.join(output_dir, f'{entity}_node_feats.npz'), *all_node_feats)
+        np.savez_compressed(os.path.join(output_dir, f'{entity}_labels.npz'), *all_labels)
+        np.savez_compressed(os.path.join(output_dir, f'{entity}_simpl.npz'), *all_simpl)
         logging.info('Laplacians, boundaries, node feats, simplices and labels computed and saved successfully.')
 
 
@@ -157,5 +159,27 @@ if __name__ == "__main__":
     # Initialize the processor
     processor = EventProcessor(pkl_file, columns_to_extract, label_column)
 
-    processor.compute_lapl_and_bounds(step=100, limit = 1000, max_dimension=2, sparsity=2, filtration_val=np.inf) # Use filtration value around 10-15
+    processor.compute_lapl_and_bounds(step=100, limit = 6500, max_dimension=2, sparsity=0.8, filtration_val=np.inf, entity = "train")
+    # Use filtration value around 10-15
+    # TODO: For now, the model works only when all 3 channels - nodes, edges and faces are present in each simplicial complex with corresponding feature vectors
+    # TODO: Add handling for dynamic simplices and compute Laplacians and Boundary maps for those variable simplices.
 
+    del processor, pkl_file
+
+    pkl_file = os.path.join(pkl_path, 'test_data.pkl')
+
+    # Initialize the processor
+    processor = EventProcessor(pkl_file, columns_to_extract, label_column)
+
+    processor.compute_lapl_and_bounds(step=100, limit = 1000, max_dimension=2, sparsity=0.8, filtration_val=np.inf, entity = "test")
+
+    del processor, pkl_file
+
+    pkl_file = os.path.join(pkl_path, 'val_data.pkl')
+
+    # Initialize the processor
+    processor = EventProcessor(pkl_file, columns_to_extract, label_column)
+
+    processor.compute_lapl_and_bounds(step = 100, limit = 2000, max_dimension=2, sparsity=0.8, filtration_val=np.inf, entity = "val")
+
+    del processor, pkl_file
