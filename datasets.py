@@ -124,13 +124,13 @@ if __name__ == "__main__":
     PROJECT_DIR = new_folder_path
     PARQUET_FILE_LOC = os.path.join(PROJECT_DIR, 'converted')
     download(test_link, os.path.join(PROJECT_DIR, 'test.h5'))
- #   download(train_link, os.path.join(PROJECT_DIR, 'train.h5'))
- #   download(val_link, os.path.join(PROJECT_DIR, 'val.h5'))
+    download(train_link, os.path.join(PROJECT_DIR, 'train.h5'))
+    download(val_link, os.path.join(PROJECT_DIR, 'val.h5'))
 
     # Call the function
     convert(source = os.path.join(PROJECT_DIR, 'train.h5'), destdir = os.path.join(PROJECT_DIR, 'converted', 'train'), basename = 'train_file', start = 0, stop = 100000, step = 1000, limit = None)
     convert(source = os.path.join(PROJECT_DIR, 'test.h5'), destdir = os.path.join(PROJECT_DIR, 'converted', 'test'), basename = 'test_file', start = 0, stop = 30000, step = 100, limit = None)
-    # convert(source = os.path.join(PROJECT_DIR, 'val.h5'), destdir = os.path.join(PROJECT_DIR, 'converted', 'val'), basename = 'val_file', start = 0, stop = 10000, step = 1000, limit = None)
+    convert(source = os.path.join(PROJECT_DIR, 'val.h5'), destdir = os.path.join(PROJECT_DIR, 'converted', 'val'), basename = 'val_file', start = 0, stop = 10000, step = 1000, limit = None)
 
 
     # print(df['x'][1])

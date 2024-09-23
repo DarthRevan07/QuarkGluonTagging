@@ -4,25 +4,420 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="690cc6b7-dab3-439a-a8e1-75df922997bf" name="Changes" comment="Parsed the processed dataframe, &#10;TODO :: Pass to Persistence Pipeline">
-      <change afterPath="$PROJECT_DIR$/coordinates_extract.py" afterDir="false" />
+    <list default="true" id="690cc6b7-dab3-439a-a8e1-75df922997bf" name="Changes" comment="Created Simplicial Neural Network&#10;TODO : Training">
+      <change afterPath="$PROJECT_DIR$/Topo.png.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_0.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_1.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_10.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_100.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_101.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_102.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_103.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_104.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_105.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_106.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_107.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_108.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_109.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_11.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_110.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_111.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_112.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_113.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_114.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_115.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_116.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_117.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_118.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_119.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_12.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_120.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_121.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_122.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_123.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_124.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_125.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_126.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_127.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_128.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_129.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_13.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_130.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_131.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_132.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_133.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_134.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_135.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_136.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_137.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_138.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_139.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_14.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_140.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_141.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_142.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_143.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_144.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_145.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_146.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_147.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_148.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_149.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_15.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_150.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_151.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_152.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_153.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_154.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_155.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_156.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_157.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_158.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_159.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_16.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_160.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_161.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_162.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_163.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_164.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_165.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_166.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_167.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_168.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_169.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_17.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_170.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_171.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_172.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_173.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_174.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_175.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_176.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_177.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_178.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_179.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_18.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_180.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_181.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_182.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_183.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_184.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_185.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_186.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_187.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_188.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_189.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_19.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_190.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_191.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_192.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_193.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_194.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_195.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_196.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_197.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_198.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_199.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_2.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_20.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_200.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_201.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_202.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_203.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_204.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_205.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_206.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_207.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_208.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_209.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_21.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_210.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_211.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_212.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_213.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_214.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_215.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_216.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_217.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_218.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_219.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_22.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_220.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_221.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_222.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_223.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_224.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_225.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_226.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_227.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_228.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_229.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_23.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_230.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_231.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_232.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_233.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_234.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_235.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_236.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_237.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_238.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_239.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_24.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_240.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_241.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_242.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_243.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_244.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_245.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_246.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_247.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_248.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_249.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_25.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_250.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_251.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_252.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_253.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_254.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_255.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_256.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_257.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_258.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_259.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_26.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_260.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_261.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_262.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_263.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_264.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_265.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_266.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_267.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_268.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_269.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_27.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_270.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_271.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_272.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_273.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_274.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_275.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_276.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_277.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_278.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_279.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_28.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_280.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_281.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_282.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_283.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_284.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_285.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_286.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_287.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_288.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_289.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_29.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_290.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_291.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_292.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_293.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_294.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_295.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_296.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_297.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_298.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_299.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_3.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_30.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_31.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_32.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_33.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_34.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_35.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_36.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_37.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_38.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_39.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_4.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_40.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_41.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_42.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_43.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_44.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_45.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_46.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_47.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_48.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_49.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_5.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_50.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_51.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_52.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_53.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_54.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_55.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_56.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_57.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_58.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_59.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_6.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_60.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_61.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_62.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_63.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_64.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_65.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_66.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_67.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_68.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_69.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_7.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_70.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_71.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_72.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_73.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_74.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_75.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_76.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_77.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_78.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_79.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_8.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_80.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_81.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_82.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_83.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_84.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_85.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_86.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_87.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_88.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_89.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_9.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_90.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_91.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_92.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_93.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_94.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_95.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_96.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_97.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_98.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/test/test_file_99.parquet" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_0.parquet" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_1.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_10.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_11.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_12.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_13.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_14.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_15.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_16.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_17.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_18.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_19.parquet" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_2.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_20.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_21.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_22.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_23.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_24.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_25.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_26.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_27.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_28.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_29.parquet" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_3.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_30.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_31.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_32.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_33.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_34.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_35.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_36.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_37.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_38.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_39.parquet" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_4.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_40.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_41.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_42.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_43.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_44.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_45.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_46.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_47.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_48.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_49.parquet" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_5.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_50.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_51.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_52.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_53.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_54.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_55.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_56.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_57.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_58.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_59.parquet" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_6.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_60.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_61.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_62.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_63.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_64.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_65.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_66.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_67.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_68.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_69.parquet" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_7.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_70.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_71.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_72.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_73.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_74.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_75.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_76.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_77.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_78.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_79.parquet" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_8.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_80.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_81.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_82.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_83.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_84.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_85.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_86.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_87.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_88.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_89.parquet" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_9.parquet" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/downloads/processed/train/train_processed.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/downloads/train.h5" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/processed_dict.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_90.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_91.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_92.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_93.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_94.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_95.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_96.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_97.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_98.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/downloads/converted/train/train_file_99.parquet" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scnn/bounds_and_laps/simpl.npz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scnn/bounds_and_laps/topoembed.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scnn/model_lightning.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coordinates_extract.py" beforeDir="false" afterPath="$PROJECT_DIR$/coordinates_extract.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_arrange.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_arrange.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/datasets.py" beforeDir="false" afterPath="$PROJECT_DIR$/datasets.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pre_persistence.py" beforeDir="false" afterPath="$PROJECT_DIR$/pre_persistence.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/preprocess_dask.py" beforeDir="false" afterPath="$PROJECT_DIR$/preprocess_dask.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/downloads/processed/train/train_processed.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/persistence/helper_functions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/processed_dict.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scnn/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/scnn/model.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +432,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
@@ -68,12 +468,17 @@
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;Python tests.Python tests in unittester.py.executor&quot;: &quot;Run&quot;,
     &quot;Python.awkward.executor&quot;: &quot;Run&quot;,
+    &quot;Python.coordinates_extract.executor&quot;: &quot;Run&quot;,
+    &quot;Python.data_arrange.executor&quot;: &quot;Run&quot;,
     &quot;Python.datasets.executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.model.executor&quot;: &quot;Run&quot;,
+    &quot;Python.model_lightning.executor&quot;: &quot;Run&quot;,
     &quot;Python.pre_persistence.executor&quot;: &quot;Run&quot;,
     &quot;Python.preprocess_dask.executor&quot;: &quot;Run&quot;,
+    &quot;Python.topoembed.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;persist&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -87,8 +492,15 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="Python.pre_persistence">
-    <configuration name="awkward" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/downloads/processed" />
+      <recent name="$PROJECT_DIR$/scnn" />
+      <recent name="$PROJECT_DIR$/persistence/gudhilib" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.model">
+    <configuration name="coordinates_extract" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="QuarkGluonTagging" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -102,7 +514,30 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/awkward.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/coordinates_extract.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="data_arrange" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="QuarkGluonTagging" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_arrange.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -157,7 +592,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="pre_persistence" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="QuarkGluonTagging" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -166,12 +601,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scnn" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pre_persistence.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scnn/model.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -180,7 +615,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="preprocess_dask" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="model_lightning" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="QuarkGluonTagging" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -189,43 +624,27 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scnn" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/preprocess_dask.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scnn/model_lightning.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Python tests in unittester.py" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
-      <module name="QuarkGluonTagging" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/helper" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/helper/unittester.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.pre_persistence" />
+        <item itemvalue="Python.model" />
+        <item itemvalue="Python.coordinates_extract" />
+        <item itemvalue="Python.model_lightning" />
+        <item itemvalue="Python.data_arrange" />
         <item itemvalue="Python.datasets" />
-        <item itemvalue="Python.preprocess_dask" />
-        <item itemvalue="Python tests.Python tests in unittester.py" />
-        <item itemvalue="Python.awkward" />
       </list>
     </recent_temporary>
   </component>
@@ -262,7 +681,21 @@
       <workItem from="1725010654985" duration="49000" />
       <workItem from="1725272414142" duration="76000" />
       <workItem from="1725353410782" duration="659000" />
-      <workItem from="1725354160213" duration="2188000" />
+      <workItem from="1725354160213" duration="2824000" />
+      <workItem from="1725464888477" duration="2447000" />
+      <workItem from="1725510160449" duration="8916000" />
+      <workItem from="1726284484484" duration="627000" />
+      <workItem from="1726484145265" duration="3528000" />
+      <workItem from="1726513571838" duration="2028000" />
+      <workItem from="1726595370350" duration="36000" />
+      <workItem from="1726650977951" duration="15958000" />
+      <workItem from="1726682705654" duration="599000" />
+      <workItem from="1726740554210" duration="11409000" />
+      <workItem from="1726814340942" duration="4329000" />
+      <workItem from="1726829289967" duration="994000" />
+      <workItem from="1726830648252" duration="144000" />
+      <workItem from="1726830795983" duration="2281000" />
+      <workItem from="1726833085877" duration="6746000" />
     </task>
     <task id="LOCAL-00001" summary="Naive peristent module, logger files.">
       <option name="closed" value="true" />
@@ -320,7 +753,31 @@
       <option name="project" value="LOCAL" />
       <updated>1724928634149</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Parsed the processed dataframe, &#10;TODO :: Pass to Persistence Pipeline">
+      <option name="closed" value="true" />
+      <created>1725356417846</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1725356417846</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Parsed the processed dataframe, &#10;TODO :: Pass to Persistence Pipeline">
+      <option name="closed" value="true" />
+      <created>1726740583412</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1726740583412</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Created Simplicial Neural Network&#10;TODO : Training">
+      <option name="closed" value="true" />
+      <created>1726754386669</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1726754386670</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -345,7 +802,8 @@
     <MESSAGE value="Parquet handler added, csv files merged.&#10;Update max runtime&#10;&#10;otherwise the job will be idled" />
     <MESSAGE value="Parquet handler added, csv files merged." />
     <MESSAGE value="Parsed the processed dataframe, &#10;TODO :: Pass to Persistence Pipeline" />
-    <option name="LAST_COMMIT_MESSAGE" value="Parsed the processed dataframe, &#10;TODO :: Pass to Persistence Pipeline" />
+    <MESSAGE value="Created Simplicial Neural Network&#10;TODO : Training" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created Simplicial Neural Network&#10;TODO : Training" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -359,11 +817,16 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/QuarkGluonTagging$pre_persistence.coverage" NAME="pre_persistence Coverage Results" MODIFIED="1725355941490" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/QuarkGluonTagging$pre_persistence.coverage" NAME="pre_persistence Coverage Results" MODIFIED="1725540923813" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/QuarkGluonTagging$data_arrange.coverage" NAME="data_arrange Coverage Results" MODIFIED="1726818338695" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/QuarkGluonTagging$topoembed.coverage" NAME="topoembed Coverage Results" MODIFIED="1726742474994" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scnn/bounds_and_laps" />
+    <SUITE FILE_PATH="coverage/QuarkGluonTagging$model.coverage" NAME="model Coverage Results" MODIFIED="1726837153840" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scnn" />
     <SUITE FILE_PATH="coverage/QuarkGluonTagging$awkward.coverage" NAME="awkward Coverage Results" MODIFIED="1724426216967" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/QuarkGluonTagging$.coverage" NAME=" Coverage Results" MODIFIED="1724588452442" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/helper" />
+    <SUITE FILE_PATH="coverage/QuarkGluonTagging$model_lightning.coverage" NAME="model_lightning Coverage Results" MODIFIED="1726831545747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scnn" />
     <SUITE FILE_PATH="coverage/QuarkGluonTagging$main.coverage" NAME="main Coverage Results" MODIFIED="1719502336434" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/QuarkGluonTagging$preprocess_dask.coverage" NAME="preprocess_dask Coverage Results" MODIFIED="1724920682930" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/QuarkGluonTagging$datasets.coverage" NAME="datasets Coverage Results" MODIFIED="1725355883506" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/QuarkGluonTagging$coordinates_extract.coverage" NAME="coordinates_extract Coverage Results" MODIFIED="1726836932768" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/QuarkGluonTagging$datasets.coverage" NAME="datasets Coverage Results" MODIFIED="1726816681118" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

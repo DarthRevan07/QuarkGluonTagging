@@ -122,3 +122,20 @@ if __name__ == '__main__':
     del df
 
     del train_path, test_path, awkward_dict
+
+
+    file_cont = os.path.join(datapath, 'val')
+    df = parquet_reader(file_cont)
+    awkward_dict = awkward_structure_parser(df)
+
+    val_path = os.path.join(os.getcwd(), 'downloads/processed/')
+    if os.path.exists(val_path):
+        pass
+    else:
+        os.mkdir(val_path)
+
+    with open(os.path.join(val_path, 'val_data.pkl'), 'wb') as f:
+        pickle.dump(awkward_dict, f)
+    del df
+
+    del val_path, awkward_dict
