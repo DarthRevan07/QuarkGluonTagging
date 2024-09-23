@@ -87,6 +87,10 @@ As you can see, the Topological Invariants hold across Lorentz Boosts and shifts
 The paper by [Dawson et. al](https://ml4physicalsciences.github.io/2022/files/NeurIPS_ML4PS_2022_176.pdf) reinforeces
 my ideas and provides a promising footing to carry on further work.
 
+In the following figure, you can see the persistence densities being plotted out for 5 events. The features that are present near the line `x - y = 0` are unimportant to us, as they have short life-spans on the Topological lifescale. Thus, the jets with unimportant topological
+informations can be removed from the training sets safely.
+
+![Unknown-8](https://github.com/user-attachments/assets/2d99ee32-8681-4b81-8e33-c65d74b677fd)
 
 
 ### Simplicial Message Passing Networks
